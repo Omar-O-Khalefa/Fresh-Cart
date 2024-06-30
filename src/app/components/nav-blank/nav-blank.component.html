@@ -1,0 +1,52 @@
+<nav #navBarP class="navbar navbar-expand-md navbar-light bg-main-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" routerLink="home">
+            <img src="./assets/freshcart-logo.svg" alt="Fresh cart">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="products">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="categoires">Categories</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active-link" routerLink="brands">Brands</a>
+                </li> -->
+           
+              
+          
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-center">
+            
+                <li class="nav-item">
+                    <a class="nav-link position-relative" routerLink="cart">
+                        <i class=" fas fa-cart-shopping fa-2x text-main "></i>
+                        <span class="badge bg-info position-absolute top-0 end-0">{{cartCo}}</span>
+                    </a>
+                </li>
+
+                <li class="nav-item d-flex gap-3 me-3">
+                   <i class="fab fa-instagram cursor-pointer"></i>
+                   <i class="fab fa-facebook cursor-pointer"></i>
+                   <i class="fab fa-tiktok cursor-pointer"></i>
+                   <i class="fab fa-twitter cursor-pointer"></i>
+                   <i class="fab fa-youtube cursor-pointer"></i>
+                </li>
+                <li class="nav-item">
+                    <span (click)="sinOut()" class="nav-link" role="button">SignOut</span>
+                </li>
+          
+            </ul>
+      
+        </div>
+  </div>
+</nav>

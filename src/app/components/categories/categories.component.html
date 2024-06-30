@@ -1,0 +1,12 @@
+<section class="my-4 p-4 mx-5">
+<div class="row g-4 justify-content-center">
+ 
+    <div class="col-sm-8 col-md-6 col-lg-4 " *ngFor="let item of categList">
+<div [routerLink]="['/categoirDetails',item._id]"  class="product">
+<img class="w-100" height="500" [src]="item.image" [alt]="item.name">
+<h3 class="text-center text-main p-2">{{item.name}}</h3>
+</div>
+    </div>
+
+</div>
+</section>

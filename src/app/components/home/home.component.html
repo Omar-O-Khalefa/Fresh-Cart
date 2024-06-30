@@ -1,0 +1,79 @@
+<section class="p-2">
+    <div class="row g-0">
+        
+        <div class="col-md-9">
+            <owl-carousel-o [options]="staticslider">
+                <ng-template carouselSlide>
+                    <img height="400" src="./assets/main-slider-1.jpeg" alt="slide1">
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img height="400" src="./assets/main-slider-2.jpeg" alt="slide2">
+                </ng-template>  
+                <ng-template carouselSlide>
+                    <img height="400" src="./assets/main-slider-3.jpeg" alt="slide3">
+                </ng-template>  
+              </owl-carousel-o>
+        </div>
+        <div class="col-md-3">
+         <img class="w-100" height="200" src="./assets/slide-1.jpeg" alt="slide1">
+         <img class="w-100" height="200" src="./assets/slide-2.jpeg" alt="slide">
+        </div>
+
+    </div>
+
+ 
+</section>
+<section class="p-2" *ngIf="categoris.length>0">
+    <h2 class="text-center text-main">Popular Categoris</h2>
+    <owl-carousel-o [options]="movedslider">
+  
+      <ng-container *ngFor="let slide of categoris">
+        <ng-template carouselSlide [id]="slide._id">
+          <img height="300" class="w-100" [src]="slide.image" [alt]="slide.name" [title]="slide.name">
+          <h6 class="text-center text-main p-1">{{slide.name}}</h6>
+        </ng-template>
+      </ng-container>
+  
+    </owl-carousel-o>
+ 
+</section>
+
+<section *ngIf="products.length>0" class="p-2">
+ 
+    <h2 class="text-center py-1 text-main">Popular Products</h2>
+    
+    <input type="text" [(ngModel)]="term"  placeholder="Search..." class="form-control w-50 mx-auto form-control-sm m-3" name="search" id="search">
+    <div class="row g-4">
+        <div *ngFor="let product of products|search:term |slice:0:18" class="col-sm-6  col-md-4 col-lg-3 col-xl-2">
+            <div class="product mainprodc h-100 position-relative">
+               
+                <i class="fa-solid fa-heart heartIcon text-danger "></i>
+
+                
+               <header [routerLink]="['/productdetails',product._id] ">
+                <img [src]="product.imageCover"
+                [title]='product.title'
+                [alt]="product.title"
+                 class="w-100" alt="">
+               <div>
+                <div>
+                    <h3 class="h6">{{product.title|cutName:2}}</h3>
+                    <h4 class=" h6 text-main">{{product.category.name}}</h4>
+                </div>
+                <div class="d-flex flex-column justify-content-between mb-0 ">
+    <span>{{product.price|currency:'EGP'}}</span>
+    <p class="mb-0">
+         <i [class.rating-color]="product.ratingsAverage >=stars"
+             *ngFor="let stars of [1,2,3,4,5]" class="fas fa-star fa-sm " ></i>
+         {{product.ratingsAverage}}
+        </p>
+                </div>
+               </div>
+                </header>
+                <footer class="d-flex">
+                   <button  (click)="addproduct(product._id,addbtn)" #addbtn class="main-btn w-100 bttnn my-2">+Add to Cart</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+</section>

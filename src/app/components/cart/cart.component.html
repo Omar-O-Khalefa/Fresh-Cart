@@ -1,0 +1,49 @@
+<section *ngIf="cartDetails else:msg" class="w-75 mx-auto rounded shadow bg-main-light p-3 mb-3 ">
+<div class="d-flex justify-content-between align-items-center container">
+    <h1 class="h2">Shop Cart</h1>
+<button #Clerbtn (click)="deletUsercartitems(Clerbtn)" class="btn btn-danger btn-sm ">
+    Clear All
+</button>
+</div>
+    <div class="row border-bottom m-1 pb-2 " *ngFor="let item of cartDetails.products">
+<div class="col-md-1">
+    <img class="w-100" [src]="item.product.imageCover" [alt]="item.product.title">
+</div>
+<div class="col-md-11 d-flex justify-content-between align-items-center">
+  <div>
+    <h3 class="h6"></h3>
+    <p class="text-main small mb-0">
+ Price : {{item.price| currency :' EGP '}}
+    </p>
+    <button #btnRemove (click)="removItem(item.product._id,btnRemove)" class="btn m-0 p-0 text-main">
+        <i class="fas fa-trash-can"></i>  Remove
+
+    </button>
+  </div>
+
+  <div >
+  <button #changeCounpls (click)="changeCount(item.product._id,item.count - 1,changeCounpls,changeCounmin)" class="btn btn-sm border-success m-1 ">-</button>
+  <span>{{item.count}}</span>
+  <button #changeCounmin  (click)="changeCount(item.product._id,item.count + 1,changeCounpls,changeCounmin)" class="btn btn-sm border-success m-1 ">+</button>
+  </div>
+</div>
+    </div>
+    <div>
+
+        <p class="text-main">
+            Total Price:{{cartDetails.totalCartPrice|currency:'  EGP  '}}
+        </p>
+
+        <button [routerLink]='["/payment",cartDetails._id]' routerLinkActive="router-link-active"  class="btn main-btn btn-outline-info">Online Payment
+            <img class="vislog" src="../../../assets/Visa_Inc._logo.svg" alt="">
+        </button>
+    </div>
+</section>
+
+ <ng-template  #msg>
+<div class="p-5">
+
+    <h2 class=" p-5 text-center "> Your Cart Is Empty.....</h2>
+</div>
+ </ng-template>
+

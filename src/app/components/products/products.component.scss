@@ -1,0 +1,17 @@
+
+.mainprodc{
+    cursor: pointer;
+    .bttnn{
+        
+        transform: translatey(150%) ;
+        transition: 1s;
+        opacity: 0;
+    }
+    overflow: hidden;
+    &:hover{
+        .bttnn{
+            transform: translatey(0%) ;
+            opacity: 1;
+        }
+    }
+}

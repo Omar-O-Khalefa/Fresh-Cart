@@ -1,0 +1,19 @@
+<section class="w-75 bg-main-light mx-auto p-3 shadow rounded m-5">
+    <form class="form" [formGroup]="orderForm" (ngSubmit)="handelFormpay()">
+        <h1>Check Out </h1>
+        <div class="form-itmes">
+            <label for="details">Details</label>
+            <input class="form-control" id="details" formControlName="details" type="text">
+        </div>
+        <div class="form-itmes">
+            <label for="phone">Phone</label>
+            <input class="form-control" id="phone" formControlName="phone" type="number">
+        </div>
+        <div class="form-itmes">
+            <label for="city">City</label>
+            <input class="form-control" id="city" formControlName="city" type="text">
+        </div>
+
+        <button class="main-btn mt-3">Check Out</button>
+    </form>
+</section>

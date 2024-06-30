@@ -1,0 +1,29 @@
+
+.mainprodc{
+    cursor: pointer;
+    .bttnn{
+        
+        transform: translatey(150%) ;
+        transition: 1s;
+        opacity: 0;
+    }
+    overflow: hidden;
+    &:hover{
+        .bttnn{
+            transform: translatey(0%) ;
+            opacity: 1;
+        }
+        .heartIcon{
+            font-size: 26px;
+    
+        }
+    }
+
+}
+.heartIcon{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 22px;
+    transition: all 1s;
+}
